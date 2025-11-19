@@ -10,8 +10,8 @@ import SwiftUI
 /// An enum housing constants for the spotlight feature.
 enum SpotlightConstants {
     enum Strings {
-        static let dismiss = NSLocalizedString("skip", comment: "") // L10n.General.skip
-        static let next = NSLocalizedString("next", comment: "") // L10n.General.next
+        static let dismiss = NSLocalizedString("general.skip", comment: "")
+        static let next = NSLocalizedString("general.next", comment: "")
     }
     
     enum Assets {
