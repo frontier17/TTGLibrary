@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FancyScrollView: View {
+public struct FancyScrollView: View {
     let title: String
     let titleColor: Color
     let headerHeight: CGFloat
@@ -46,7 +46,7 @@ struct FancyScrollView: View {
 }
 
 extension FancyScrollView {
-    init(
+    public init(
         title: String = "",
         titleColor: Color = Color.white,
         headerHeight: CGFloat = 350,
