@@ -21,12 +21,12 @@
 import SwiftUI
 
 @available(iOS 13.0, OSX 10.15, *)
-struct ACarousel<Data, ID, Content>: View where Data: RandomAccessCollection, ID: Hashable, Content: View {
+public struct ACarousel<Data, ID, Content>: View where Data: RandomAccessCollection, ID: Hashable, Content: View {
     @ObservedObject
     private var viewModel: ACarouselViewModel<Data, ID>
     private let content: (Data.Element) -> Content
     
-    var body: some View {
+    public var body: some View {
         GeometryReader { proxy -> AnyView in
             viewModel.viewSize = proxy.size
             return AnyView(generateContent(proxy: proxy))
@@ -70,7 +70,7 @@ extension ACarousel {
     ///   - autoScroll: A enum that define view to scroll automatically. See
     ///     ``ACarouselAutoScroll``. default is `inactive`.
     ///   - content: The view builder that creates views dynamically.
-    init(_ data: Data, id: KeyPath<Data.Element, ID>, index: Binding<Int> = .constant(0), spacing: CGFloat = 10, headspace: CGFloat = 10, sidesScaling: CGFloat = 0.8, isWrap: Bool = true, autoScroll: ACarouselAutoScroll = .inactive, canMove: Bool = true, @ViewBuilder content: @escaping (Data.Element) -> Content) {
+    public init(_ data: Data, id: KeyPath<Data.Element, ID>, index: Binding<Int> = .constant(0), spacing: CGFloat = 10, headspace: CGFloat = 10, sidesScaling: CGFloat = 0.8, isWrap: Bool = true, autoScroll: ACarouselAutoScroll = .inactive, canMove: Bool = true, @ViewBuilder content: @escaping (Data.Element) -> Content) {
         self.viewModel = ACarouselViewModel(data, id: id, index: index, spacing: spacing, headspace: headspace, sidesScaling: sidesScaling, isWrap: isWrap, autoScroll: autoScroll, canMove: canMove)
         self.content = content
     }
@@ -93,7 +93,7 @@ extension ACarousel where ID == Data.Element.ID, Data.Element: Identifiable {
     ///   - autoScroll: A enum that define view to scroll automatically. See
     ///     ``ACarouselAutoScroll``. default is `inactive`.
     ///   - content: The view builder that creates views dynamically.
-    init(_ data: Data, index: Binding<Int> = .constant(0), spacing: CGFloat = 10, headspace: CGFloat = 10, sidesScaling: CGFloat = 0.8, isWrap: Bool = false, autoScroll: ACarouselAutoScroll = .inactive, canMove: Bool = true, @ViewBuilder content: @escaping (Data.Element) -> Content) {
+    public init(_ data: Data, index: Binding<Int> = .constant(0), spacing: CGFloat = 10, headspace: CGFloat = 10, sidesScaling: CGFloat = 0.8, isWrap: Bool = false, autoScroll: ACarouselAutoScroll = .inactive, canMove: Bool = true, @ViewBuilder content: @escaping (Data.Element) -> Content) {
         self.viewModel = ACarouselViewModel(data, index: index, spacing: spacing, headspace: headspace, sidesScaling: sidesScaling, isWrap: isWrap, autoScroll: autoScroll, canMove: canMove)
         self.content = content
     }

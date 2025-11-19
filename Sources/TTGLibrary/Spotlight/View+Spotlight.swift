@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Convenience extension to make creating spotlight
 /// views and spotlight elements easier to invoke.
-extension View {
+public extension View {
     /// Convenience method that makes the calling view a spotlight presenter.
     ///
     /// The provided publisher serves as the spotlight queue. Any spotlight

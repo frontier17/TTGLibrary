@@ -15,7 +15,7 @@ private typealias SpotlightStrings = SpotlightConstants.Strings
 ///
 /// - note: See the `FocusOverlay` protocol for an explanation
 ///         of the contract and how it is used.
-struct DefaultOverlay: FocusOverlay {
+public struct DefaultOverlay: FocusOverlay {
     let focus: CGRect?
     let container: CGRect
     
@@ -25,7 +25,7 @@ struct DefaultOverlay: FocusOverlay {
     var focusShape = Spotlight.Element.Shape.circle
     var message: String?
     
-    init(focus: CGRect?, container: CGRect) {
+    public init(focus: CGRect?, container: CGRect) {
         self.focus = focus
         self.container = container
     }
@@ -46,35 +46,35 @@ struct DefaultOverlay: FocusOverlay {
     /// Sets the cancellable property for the overlay element.
     ///
     /// - parameter cancellable: The desired cancellable value.
-    func cancellable(_ cancellable: Bool) -> Self {
+    public func cancellable(_ cancellable: Bool) -> Self {
         set(\.cancellable, to: cancellable)
     }
     
     /// Sets the confirm closure for the overlay element.
     ///
     /// - parameter onConfirm: The desired confirm closure.
-    func focusNext(_ focusNext: @escaping () -> Void) -> Self {
+    public func focusNext(_ focusNext: @escaping () -> Void) -> Self {
         set(\.focusNext, to: focusNext)
     }
     
     /// Sets the dismiss closure for this element.
     ///
     /// - parameter onDismiss: The desired dismiss closure.
-    func focusNone(_ focusNone: @escaping () -> Void) -> Self {
+    public func focusNone(_ focusNone: @escaping () -> Void) -> Self {
         set(\.focusNone, to: focusNone)
     }
     
     /// Sets the focus shape for this element.
     ///
     /// - parameter shape: The desired focus shape.
-    func focusShape(_ shape: Spotlight.Element.Shape) -> Self {
+    public func focusShape(_ shape: Spotlight.Element.Shape) -> Self {
         set(\.focusShape, to: shape)
     }
     
     /// Sets the message property for the overlay element.
     ///
     /// - parameter message: The desired message value.
-    func message(_ message: String?) -> Self {
+    public func message(_ message: String?) -> Self {
         set(\.message, to: message)
     }
 }

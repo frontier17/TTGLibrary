@@ -20,14 +20,14 @@
 
 import SwiftUI
 
-enum ACarouselAutoScroll {
+public enum ACarouselAutoScroll {
     case inactive
     case active(TimeInterval)
 }
 
 extension ACarouselAutoScroll {
     /// default active
-    static var defaultActive: Self {
+    public static var defaultActive: Self {
         .active(5)
     }
     

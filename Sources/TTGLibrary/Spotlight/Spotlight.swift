@@ -15,7 +15,7 @@ public struct Spotlight {
     /// A struct modeling an individual element within a
     /// spotlight sequence.
     public struct Element: Equatable {
-        typealias Key = String
+        public typealias Key = String
         
         let key: Key
         let message: String
